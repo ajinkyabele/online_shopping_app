@@ -34,6 +34,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
+      - docker login -u ajinkya111 -p $DOCKER_REGISTRY_PASSWORD
       - docker push $IMAGE_NAME:latest
       - echo Uploading zip file to S3 root location...
       - aws s3 cp online-shop-app.zip s3://tws-online-shop-demo/online-shop-app/ # Upload zip file to the root of the bucket
